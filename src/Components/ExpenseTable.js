@@ -26,6 +26,7 @@ const ExpenseTable = ({expenseItems, setExpenseItems}) => {
                         <th>Payment Method</th>
                         <th>Description</th>
                         <th>Location</th>
+                        <th>Delete Expense?</th>
                     </tr>
                 </thead>
                 {/* { <tobdy>{expense}</tobdy> } */}
@@ -35,7 +36,7 @@ const ExpenseTable = ({expenseItems, setExpenseItems}) => {
                     <td>cash</td>
                     <td>shoes</td>
                     <td>shoe store</td>
-                    <td> <button type="button" className="btn-danger">Delete</button></td>
+                    <td> <button type="button" className="btn-danger">X</button></td>
                 </tr>
                 <tr>
                     <td>09/21/2021</td>
@@ -43,7 +44,7 @@ const ExpenseTable = ({expenseItems, setExpenseItems}) => {
                     <td>ccredit</td>
                     <td>food</td>
                     <td>food store</td>
-                    <td> <button type="button" className="btn-danger">Delete</button></td>
+                    <td> <button type="button" className="btn-danger">X</button></td>
                 </tr>
             </table>
 
