@@ -1,19 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const ExpenseInput = (props) => {
+const ExpenseInput = ({expenseItems, setExpenseItems}) => {
+    const [date, setDate] = useState(" ");
+    const [amount, setAmount] = useState(" ");
+    const [paymentMethod, setPaymentMethod] = useState(" ");
+    const [description, setDescription] = useState(" ");
+    const [purchaseLocation, setPurchaseLocation] = useState(" ");
+
+    const handleExpenseSubmit = (e) => {
+        e.preventDefault();
+          
+        const expense = {
+            id: Date.now(),
+            date,
+            amount,
+            paymentMethod,
+            description,
+            purchaseLocation
+        }
+
+        setExpenseItems([...expenseItems, expense]);
+        clearForm();
+    }
     
+    function clearForm() {
+        setDate("");
+        setAmount("");
+        setPaymentMethod("");
+        setDescription("");
+        setPurchaseLocation("");
+    }
+
     return (
         <div className="container p-4 my-5 border border-3 border-dark rounded">
-            <form onSubmit= {props.handleExpenseSubmit}>
+            <form onSubmit={handleExpenseSubmit}>
                 <div className="row">
                     <div className="col">
                         <label for="dateInput" className="form-label">Date:</label>
                         <input 
-                            value={props.date}
+                            value={date}
                             type="date" 
                             placeholder="mm/dd/yyyy" 
                             className="form-control-sm mb-3 col ms-2"
-                            //onSubmit={(e) => props.setDate(e.target.value)}
+                            onChange={(e) => setDate(e.target.value)}
                             >
                         </input>
                     </div>
@@ -21,23 +50,22 @@ const ExpenseInput = (props) => {
                     <div className="col">
                         <label for="expenseAmount" className="form-label">Price: </label>
                         <input 
-                            value={props.amount}
+                            value={amount}
                             type="number" 
-                            placeholder="How much did it cost?" 
+                            placeholder="How much?" 
                             className="form-control-sm mb-3 col ms-2"
-                            //onSubmit={(e) => props.setAmount(e.target.value)}
+                            onChange={(e) => setAmount(e.target.value)}
                             >
                         </input>
                     </div>
         
-
                     <div className="col">
                         <label for="payment-method" className="form-label">Payment method: </label>
                             <select 
-                                value={props.paymentMethod}
+                                value={paymentMethod}
                                 className="col form-select-sm border-2 rounded ms-2" 
                                 name="payment-method" id="payment-method"
-                                //onSubmit={(e) => props.setPaymentMethod(e.target.value)}
+                                onChange={(e) => setPaymentMethod(e.target.value)}
                                 >
                             
                                 <option value="cash">Cash</option>
@@ -54,24 +82,24 @@ const ExpenseInput = (props) => {
                     <div className="col">
                         <label for="expense-description">Expense description: </label>
                         <input 
-                            value={props.description}
+                            value={description}
                             type="text" 
                             id="expenseDescription" 
                             placeholder="What did you buy?" 
                             className="col form-control-sm mb-3 ms-2"
-                            //onSubmit={(e) => props.setDescription(e.target.value)}
+                            onChange={(e) => setDescription(e.target.value)}
                             >
                         </input>
                     </div>
                     <div className="col">
                         <label for="purchase-location">Purchase Location: </label>
                         <input 
-                            value={props.purchaseLocation}
+                            value={purchaseLocation}
                             type="text" 
                             id="purchase-location" 
                             placeholder="Where did you buy it?" 
                             className="col form-control-sm mb-3 ms-2"
-                            //onSubmit={(e) => props.setPurchaseLocation(e.target.value)}
+                            onChange={(e) => setPurchaseLocation(e.target.value)}
                             >
                         </input>
                     </div>
