@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
-  const [expenseItems, setExpenseItems] = useState("");
+  const [expenseItems, setExpenseItems] = useState([]);
   
   return (
     <div className="container pt-3">
@@ -13,8 +13,13 @@ function App() {
           <h1>Expense Tracker</h1>
           <small>created by Tim Miller</small>
         </header>
-      <ExpenseInput expenseItems={expenseItems} setExpenseItems={setExpenseItems} />
-      <ExpenseTable expenseItems={expenseItems} setExpenseItems={setExpenseItems} />
+      <ExpenseInput 
+      expenseItems={expenseItems} 
+      setExpenseItems={setExpenseItems} 
+      />
+      <ExpenseTable 
+      expenseItems={expenseItems} 
+      setExpenseItems={setExpenseItems} />
     </div>
   );
 }
