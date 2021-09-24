@@ -1,7 +1,13 @@
 import React from 'react';
 
-const ExpenseTable = ({expenseItems}) => {
-    
+const ExpenseTable = ({expenseItems, setExpenseItems}) => {
+    function handleDelete (id) {
+        console.log(id);
+        const newExpenseItems = expenseItems.filter((expense) => expense.id !==id)
+
+        setExpenseItems(newExpenseItems);
+          
+    }
     
     const expense = expenseItems.map((expense) => (
         <tr key={expense.id}>
@@ -11,7 +17,7 @@ const ExpenseTable = ({expenseItems}) => {
             <td>{expense.description}</td>
             <td>{expense.purchaseLocation}</td>
             <td> 
-                <button className="btn-danger">X</button>
+                <button className="btn-danger" onClick={() => handleDelete(expense.id)}>X</button>
                 </td>
         </tr>
     ));

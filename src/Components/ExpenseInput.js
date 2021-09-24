@@ -84,8 +84,8 @@ const ExpenseInput = ({expenseItems, setExpenseItems}) => {
                         <input 
                             value={description}
                             type="text" 
-                            id="expenseDescription" 
                             placeholder="What did you buy?" 
+                            id="expenseDescription" 
                             className="col form-control-sm mb-3 ms-2"
                             onChange={(e) => setDescription(e.target.value)}
                             >
