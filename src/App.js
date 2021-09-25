@@ -3,7 +3,6 @@ import ExpenseInput from './Components/ExpenseInput';
 import ExpenseTable from './Components/ExpenseTable';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 function App() {
   const [expenseItems, setExpenseItems] = useState([]);
   

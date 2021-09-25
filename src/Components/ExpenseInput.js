@@ -9,6 +9,7 @@ const ExpenseInput = ({expenseItems, setExpenseItems}) => {
 
     const handleExpenseSubmit = (e) => {
         e.preventDefault();
+
           
         const expense = {
             id: Date.now(),
@@ -36,9 +37,10 @@ const ExpenseInput = ({expenseItems, setExpenseItems}) => {
             <form onSubmit={handleExpenseSubmit}>
                 <div className="row">
                     <div className="col">
-                        <label for="dateInput" className="form-label">Date:</label>
+                        <label className="form-label">Date:</label>
                         <input 
                             value={date}
+                            required
                             type="date" 
                             placeholder="mm/dd/yyyy" 
                             className="form-control-sm mb-3 col ms-2"
@@ -48,9 +50,10 @@ const ExpenseInput = ({expenseItems, setExpenseItems}) => {
                     </div>
                 
                     <div className="col">
-                        <label for="expenseAmount" className="form-label">Price: </label>
+                        <label className="form-label">Price: </label>
                         <input 
                             value={amount}
+                            required
                             type="number" 
                             placeholder="How much?" 
                             className="form-control-sm mb-3 col ms-2"
@@ -60,14 +63,14 @@ const ExpenseInput = ({expenseItems, setExpenseItems}) => {
                     </div>
         
                     <div className="col">
-                        <label for="payment-method" className="form-label">Payment method: </label>
+                        <label className="form-label">Payment method: </label>
                             <select 
                                 value={paymentMethod}
                                 className="col form-select-sm border-2 rounded ms-2" 
                                 name="payment-method" id="payment-method"
                                 onChange={(e) => setPaymentMethod(e.target.value)}
                                 >
-                            
+                                <option value=""></option>;
                                 <option value="cash">Cash</option>
                                 <option value="debit">Debit</option>
                                 <option value="credit">Credit</option>
@@ -80,9 +83,10 @@ const ExpenseInput = ({expenseItems, setExpenseItems}) => {
                 
                 <div className="row mt-3">
                     <div className="col">
-                        <label for="expense-description">Expense description: </label>
+                        <label className="form-label">Expense description: </label>
                         <input 
                             value={description}
+                            required
                             type="text" 
                             placeholder="What did you buy?" 
                             id="expenseDescription" 
@@ -92,12 +96,13 @@ const ExpenseInput = ({expenseItems, setExpenseItems}) => {
                         </input>
                     </div>
                     <div className="col">
-                        <label for="purchase-location">Purchase Location: </label>
+                        <label className="form-label">Purchase Location: </label>
                         <input 
+                            placeholder="Where did you buy it?" 
                             value={purchaseLocation}
+                            required 
                             type="text" 
                             id="purchase-location" 
-                            placeholder="Where did you buy it?" 
                             className="col form-control-sm mb-3 ms-2"
                             onChange={(e) => setPurchaseLocation(e.target.value)}
                             >

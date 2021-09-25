@@ -12,7 +12,7 @@ const ExpenseTable = ({expenseItems, setExpenseItems}) => {
     const expense = expenseItems.map((expense) => (
         <tr key={expense.id}>
             <td>{expense.date}</td>
-            <td>{expense.amount}</td>
+            <td>${expense.amount}</td>
             <td>{expense.paymentMethod}</td>
             <td>{expense.description}</td>
             <td>{expense.purchaseLocation}</td>
